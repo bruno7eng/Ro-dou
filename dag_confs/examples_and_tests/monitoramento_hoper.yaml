@@ -1,40 +1,23 @@
 dag_id: "monitoramento_hoper"
-# Agenda: Roda todo dia às 05:00 da manhã (Cron Syntax)
-schedule_interval: "0 5 * * *"
-# Tags para filtrar na interface
-tags: ["pessoal", "concursos", "mec"]
+# Agenda: Todo dia às 07:00
+schedule_interval: "0 7 * * *"
+tags: ["hoper", "mec", "regulação"]
 
-# Definição das Buscas
 groups:
-  # GRUPO 1: Monitoramento Pessoal (Nome e CPF se quiser)
-  - name: "pessoal"
+  - name: "regulacao_cursos"
     search_terms:
-      - "Bruno Prux Medeiros"
-      - "avalia.doc"
-      - "panaceIA"
-    # Envia para Email (precisa configurar SMTP) ou Discord
-    email_on_failure: false
-    email_on_success: true
-    emails: ["seu.email.real@gmail.com"]
+      - "Ministério da Educação"
+      - "Secretaria de Regulação e Supervisão da Educação Superior"
+    # Use 'match_mode: all' se quiser que apareçam AMBOS os termos
+    # Use 'match_mode: any' se quiser QUALQUER UM dos termos
+    match_mode: "any"
 
-  # GRUPO 2: Concurso Poços de Caldas (Filtro refinado)
-  - name: "concurso_pocos"
-    search_terms:
-      - "Prefeitura Municipal de Poços de Caldas"
-    # Filtra para trazer apenas resultados que contenham "Engenheiro" ou "Transportes" no texto
+    # Filtros: Só traz a publicação se tiver uma dessas palavras NO TEXTO
     filters:
-      - "Engenheiro"
-      - "Transportes"
-      - "Nomeação"
-      - "Convocação"
-    match_mode: "all" # (Opcional) Exige que todos os termos batam, ou 'any' para qualquer um
+      - "Autorização de curso"
+      - "Reconhecimento de curso"
+      - "Hoper"
 
-  # GRUPO 3: Regulação MEC (Interesse Profissional)
-  - name: "regulacao_mec"
-    search_terms:
-      - "Portaria MEC"
-      - "INEP"
-    filters:
-      - "Engenharia Civil"
-      - "Autorização de Curso"
-      - "Reconhecimento de Curso"
+    # Se quiser enviar email, descomente e ajuste:
+    # email_on_success: true
+    # emails: ['seu.email@exemplo.com']
