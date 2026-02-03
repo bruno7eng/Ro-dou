@@ -30,7 +30,7 @@ services:
     # Mantemos a porta exposta para você conseguir debugar se precisar (acessando IP-DA-VPS:8080)
     # Se quiser bloquear totalmente externo, remova estas linhas de ports.
     ports:
-      - "8080:8080"
+      - "8090:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
