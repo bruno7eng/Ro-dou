@@ -1,0 +1,40 @@
+dag_id: "monitoramento_hoper"
+# Agenda: Roda todo dia às 05:00 da manhã (Cron Syntax)
+schedule_interval: "0 5 * * *"
+# Tags para filtrar na interface
+tags: ["pessoal", "concursos", "mec"]
+
+# Definição das Buscas
+groups:
+  # GRUPO 1: Monitoramento Pessoal (Nome e CPF se quiser)
+  - name: "pessoal"
+    search_terms:
+      - "Bruno Prux Medeiros"
+      - "avalia.doc"
+      - "panaceIA"
+    # Envia para Email (precisa configurar SMTP) ou Discord
+    email_on_failure: false
+    email_on_success: true
+    emails: ["seu.email.real@gmail.com"]
+
+  # GRUPO 2: Concurso Poços de Caldas (Filtro refinado)
+  - name: "concurso_pocos"
+    search_terms:
+      - "Prefeitura Municipal de Poços de Caldas"
+    # Filtra para trazer apenas resultados que contenham "Engenheiro" ou "Transportes" no texto
+    filters:
+      - "Engenheiro"
+      - "Transportes"
+      - "Nomeação"
+      - "Convocação"
+    match_mode: "all" # (Opcional) Exige que todos os termos batam, ou 'any' para qualquer um
+
+  # GRUPO 3: Regulação MEC (Interesse Profissional)
+  - name: "regulacao_mec"
+    search_terms:
+      - "Portaria MEC"
+      - "INEP"
+    filters:
+      - "Engenharia Civil"
+      - "Autorização de Curso"
+      - "Reconhecimento de Curso"
