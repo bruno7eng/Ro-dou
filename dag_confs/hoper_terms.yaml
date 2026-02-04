@@ -1,6 +1,6 @@
 dag:
   id: hoper_terms
-  description: Monitoramento de Regulação MEC e Hoper
+  description: Monitoramento de Regulação MEC (Termos)
   tags:
     - hoper
     - mec
@@ -39,3 +39,4 @@ dag:
       - seu.email@exemplo.com
     attach_csv: True
     subject: Relatório Diário - Hoper/MEC
+    webhook_url: "https://n8n.vps.avaliadoc.com.br/webhook-test/22a537f5-7b44-46e2-b7b4-2fc47b1112ed"

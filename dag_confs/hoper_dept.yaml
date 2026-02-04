@@ -1,6 +1,6 @@
 dag:
   id: hoper_dept
-  description: Monitoramento de Regulação MEC e Hoper
+  description: Monitoramento de Regulação MEC (geral)
   tags:
     - hoper
     - mec

@@ -193,6 +193,11 @@ class ReportConfig(BaseModel):
     discord: Optional[dict] = Field(
         default=None, description="Configuração do webhook do Discord para relatórios"
     )
+    # --- TRECHO INCLUÍDO PARA WEBHOOK ---
+    webhook_url: Optional[str] = Field(
+        default=None, description="URL do Webhook (ex: n8n) para envio dos resultados em JSON"
+    )
+    # --- FIM DA ALTERAÇÃO ---
     emails: Optional[List[EmailStr]] = Field(
         default=None, description="Lista de endereços de e-mail para enviar o relatório"
     )
