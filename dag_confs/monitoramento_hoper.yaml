@@ -35,4 +35,4 @@ dag:
     subject: "Relatório Diário - Hoper/MEC"
     attach_csv: True
     # Pula o envio se não achar nada
-    skip_null: True
+    skip_null: False

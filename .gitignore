@@ -138,3 +138,5 @@ test_notrack/
 **/mnt/pgdata/
 **/mnt/airflow-logs
 # **/dag_confs/**/*.yaml
+# Ignora qualquer arquivo que termine em _bck.yaml dentro de dag_confs
+dag_confs/**/*_bck.yaml

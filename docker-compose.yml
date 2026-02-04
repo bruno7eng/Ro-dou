@@ -24,6 +24,11 @@ services:
       - AIRFLOW_VAR_PATH_TMP=/tmp
       - AIRFLOW_VAR_EMAIL_ADMIN=admin@rodou.gov.br
       - AIRFLOW_CONN_INLABS_DB=postgres://airflow:airflow@postgres:5432/airflow?schema=inlabs
+      - AIRFLOW__SMTP__SMTP_HOST=smtp4dev
+      - AIRFLOW__SMTP__SMTP_PORT=25
+      - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@rodou.local
+      - AIRFLOW__SMTP__SMTP_USER=
+      - AIRFLOW__SMTP__SMTP_PASSWORD=
     volumes:
       - airflow_logs:/opt/airflow/logs
     depends_on:
@@ -56,6 +61,11 @@ services:
       - AIRFLOW_VAR_PATH_TMP=/tmp
       - AIRFLOW_VAR_EMAIL_ADMIN=admin@rodou.gov.br
       - AIRFLOW_CONN_INLABS_DB=postgres://airflow:airflow@postgres:5432/airflow?schema=inlabs
+      - AIRFLOW__SMTP__SMTP_HOST=smtp4dev
+      - AIRFLOW__SMTP__SMTP_PORT=25
+      - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@rodou.local
+      - AIRFLOW__SMTP__SMTP_USER=
+      - AIRFLOW__SMTP__SMTP_PASSWORD=
     volumes:
       - airflow_logs:/opt/airflow/logs
     depends_on:
