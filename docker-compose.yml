@@ -29,6 +29,8 @@ services:
       - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@rodou.local
       - AIRFLOW__SMTP__SMTP_USER=
       - AIRFLOW__SMTP__SMTP_PASSWORD=
+      - AIRFLOW__SMTP__SMTP_SSL=false
+      - AIRFLOW__SMTP__SMTP_STARTTLS=false
     volumes:
       - airflow_logs:/opt/airflow/logs
     depends_on:
@@ -66,6 +68,8 @@ services:
       - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@rodou.local
       - AIRFLOW__SMTP__SMTP_USER=
       - AIRFLOW__SMTP__SMTP_PASSWORD=
+      - AIRFLOW__SMTP__SMTP_SSL=false
+      - AIRFLOW__SMTP__SMTP_STARTTLS=false
     volumes:
       - airflow_logs:/opt/airflow/logs
     depends_on:
