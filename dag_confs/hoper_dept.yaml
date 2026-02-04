@@ -1,0 +1,41 @@
+dag:
+  id: hoper_mec
+  description: Monitoramento de Regulação MEC e Hoper
+  tags:
+    - hoper
+    - mec
+  #  owner:
+  #    - pessoa 1
+  #    - pessoa 2
+  schedule: "*/30 2-6 * * MON-FRI"
+  callback:
+    on_failure_callback:
+      - seu.email@exemplo.com
+  # No Ro-DOU, 'search' é uma lista. Cada item da lista é um bloco de busca.
+  search:
+    header: Regulação MEC (Departamento)
+    # Lista de termos para buscar. O Ro-DOU vai trazer publicações que contenham esses termos.
+    department:
+      - Ministério da Educação
+    # Opcional: Ignorar publicações que contenham estes termos
+    # terms_ignore:
+    #  - Sanções Administrativas
+    field: TUDO
+    is_exact_search: True
+    ignore_signature_match: True
+    force_rematch: True
+    date: MES
+    # Seção do DOU (Opcional, padrão é TODOS)
+    dou_sections:
+      - SECAO_1
+      - EDICAO_SUPLEMENTAR
+      - EDICAO_EXTRA
+    full_text: True
+    use_summary: True
+    text_length: 400
+  report:
+    # Configure seu e-mail aqui
+    emails:
+      - seu.email@exemplo.com
+    attach_csv: True
+    subject: Relatório Diário - Hoper/MEC
