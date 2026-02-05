@@ -173,7 +173,22 @@ dag:
     date: DIA
     # Seção do DOU (Opcional, padrão é TODOS)
     dou_sections:
-      - TODOS
+      - SECAO_1
+      # - SECAO_2
+      - SECAO_3
+      - EDICAO_EXTRA
+      - EDICAO_EXTRA_1A
+      - EDICAO_EXTRA_1B
+      - EDICAO_EXTRA_1C
+      - EDICAO_EXTRA_1D
+      # - EDICAO_EXTRA_2A
+      # - EDICAO_EXTRA_2B
+      # - EDICAO_EXTRA_2D
+      - EDICAO_EXTRA_3A
+      - EDICAO_EXTRA_3B
+      - EDICAO_EXTRA_3C
+      - EDICAO_EXTRA_3D
+      # - EDICAO_SUPLEMENTAR
     full_text: True
     use_summary: True
     text_length: 400
