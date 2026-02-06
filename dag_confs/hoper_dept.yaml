@@ -190,7 +190,7 @@ dag:
       # - EDICAO_SUPLEMENTAR
     full_text: True
     use_summary: True
-    text_length: 400
+    text_length: 50000
   report:
     # Configure seu e-mail aqui
     emails:
